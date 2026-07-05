@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=IDE
+Exec=ide
+Icon=dev.anarg.PortableIDE
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

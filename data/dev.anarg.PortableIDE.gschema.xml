@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="ide">
+	<schema id="dev.anarg.PortableIDE" path="/dev/anarg/PortableIDE/">
+	</schema>
+</schemalist>

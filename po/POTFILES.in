@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/dev.anarg.PortableIDE.desktop.in
+data/dev.anarg.PortableIDE.metainfo.xml.in
+data/dev.anarg.PortableIDE.gschema.xml
+src/main.py
+src/window.py
+src/window.ui
