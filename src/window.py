@@ -1,30 +1,38 @@
-# window.py
-#
-# Copyright 2026 charles
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
-# SPDX-License-Identifier: GPL-3.0-or-later
+from gi.repository import Adw, Gtk, Gdk
 
-from gi.repository import Adw
-from gi.repository import Gtk
+class IDEConfig:
+    def __init__(self):
+        self.CodeEditorFontSize = 25
+        self.EditorBackgroundColor = '#1A1A1A'
+
+config = IDEConfig()
+
 
 @Gtk.Template(resource_path='/dev/anarg/PortableIDE/window.ui')
 class IdeWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'IdeWindow'
 
-    label = Gtk.Template.Child()
+    code_editor = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+        css = Gtk.CssProvider()
+        css.load_from_data(f"""
+            .CodeEditor {{
+                font-size: {config.CodeEditorFontSize}px;
+                background-color: {config.EditorBackgroundColor};
+                font-family: "fredoka";
+            }}
+
+            window {{
+                background-color: {config.EditorBackgroundColor};
+            }}
+        """.encode())
+        
+
+        Gtk.StyleContext.add_provider_for_display(
+            Gdk.Display.get_default(),
+            css,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION,
+        )

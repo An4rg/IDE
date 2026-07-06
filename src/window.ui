@@ -3,7 +3,7 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="IdeWindow" parent="AdwApplicationWindow">
-    <property name="title" translatable="yes">IDE</property>
+    <property name="title" translatable="yes">MobileIDE</property>
     <property name="default-width">800</property>
     <property name="default-height">600</property>
     <property name="content">
@@ -21,11 +21,21 @@
           </object>
         </child>
         <property name="content">
-          <object class="GtkLabel" id="label">
-            <property name="label" translatable="yes">Hello, World!</property>
-            <style>
-              <class name="title-1"/>
-            </style>
+          <object class="GtkScrolledWindow" id="window">
+            <property name="hexpand">true</property>
+            <property name="vexpand">true</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="margin-start">20</property>
+            <property name="margin-end">6</property>
+            <property name="child">
+              <object class="GtkTextView" id="code_editor">
+                <property name="monospace">true</property>
+                <style>
+                  <class name="CodeEditor"/>
+                </style>
+              </object>
+            </property>
           </object>
         </property>
       </object>
