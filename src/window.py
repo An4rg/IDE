@@ -22,7 +22,6 @@ class IdeWindow(Adw.ApplicationWindow):
             .CodeEditor {{
                 font-size: {config.CodeEditorFontSize}px;
                 background-color: {config.EditorBackgroundColor};
-                font-family: "fredoka";
             }}
 
             window {{
